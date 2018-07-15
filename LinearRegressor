@@ -13,7 +13,7 @@ import theano.tensor as T
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
-#from  numpy.linalgnumpy.li  import pinv
+from  numpy.linalg import pinv
 
 
 df = pnd.read_csv('data/ex1data1.txt', header=None)
@@ -106,11 +106,11 @@ plt.ylabel(r'$\theta_{0}$');
 # Contour cost function, showing minimum
 levels = [i*i for i in np.arange(25)]
 contour = plt.contour(theta0_vals, theta1_vals, J_vals, levels)
-plt.plot(theta.get_value()[0], theta.get_value()[1], 'rx')
-plt.xlabel(r'$\theta_{0}$')
-plt.ylabel(r'$\theta_{1}$')
-plt.xticks(np.arange(-10,11,2))
-plt.yticks(np.arange(-1,4.5,0.5));
+#plt.plot(theta.get_value()[0], theta.get_value()[1], 'rx')
+#plt.xlabel(r'$\theta_{0}$')
+#plt.ylabel(r'$\theta_{1}$')
+#plt.xticks(np.arange(-10,11,2))
+#plt.yticks(np.arange(-1,4.5,0.5));
 
 
 
@@ -121,7 +121,9 @@ for i in range(10):
     print(' x = [%i, %i], y = %i ' % (df2.loc[i, 'X1'], df2.loc[i, 'X2'], df2.loc[i, 'Y']))
     
     
-    
+df5 = df2.head()
+print(df5)
+
     
 mu = df2.mean()
 sigma = df2.std()
@@ -169,7 +171,7 @@ y = T.vector('y')
 
 alphas = [0.01, 0.03, 0.10, 0.30]
 colors = ['k', 'r', 'g', 'b']
-l = len(alphas)
+l = 4
 costM = np.zeros((l, 50))
 for j, alpha in enumerate(alphas):
     # Init Theta and Run Gradient Descent 
