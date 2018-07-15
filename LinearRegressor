@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jul 15 06:08:59 2018
+Created on  Mon  9 10:45:31 2018
 
 @author: nesma
 """
@@ -11,6 +11,8 @@ import theano
 import numpy as np
 import theano.tensor as T
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
 #from  numpy.linalgnumpy.li  import pinv
 
 
@@ -92,8 +94,6 @@ for i, theta0 in enumerate(theta0_vals):
         J_vals[j,i] = np.sum(np.power(np.dot(theta_,X)-Y,2))/(2*m)
 
 # Surface cost function
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm
 x_vals, y_vals = np.meshgrid(theta0_vals, theta1_vals)
 fig = plt.figure(figsize=(8,6))
 ax = fig.gca(projection='3d')
@@ -114,7 +114,7 @@ plt.yticks(np.arange(-1,4.5,0.5));
 
 
 
-df2  ==  pndpnd.read_csvread_cs ('data/ex1data2.txt', header=None)
+df2  =  pnd.read_csv('data/ex1data2.txt', header=None)
 df2.columns = ['X1', 'X2', 'Y']
 print('First 10 examples from the dataset:')
 for i in range(10):
