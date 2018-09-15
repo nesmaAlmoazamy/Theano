@@ -1,2 +1,2 @@
-# TheanoLinearRegression
-Linear regression using Theano
+# Theano
+Linear regression using Theano && CNN
